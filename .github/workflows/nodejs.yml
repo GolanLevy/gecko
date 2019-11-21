@@ -6,6 +6,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.github_token_deploy }}
 
     steps:
     - uses: actions/checkout@v1
@@ -15,5 +17,9 @@ jobs:
         node-version: 12.x
     - name: npm install, build, and test
       run: |
+        git config user.email "golan.levy@gong.io"
+        git config user.name "Golan Levy"
+        git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         npm install
-        npm run deploy
+        webpack
+        git subtree push --prefix build origin gh-pages
