@@ -28,4 +28,4 @@ jobs:
         git commit -am "GitHub Action's build"
         git branch
         git push
-        git subtree push --prefix build master gh-pages
+        git subtree push --prefix build origin gh-pages
