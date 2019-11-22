@@ -22,7 +22,9 @@ jobs:
         git remote -v
         git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git remote -v
-        git pull
         npm install
         webpack
+        git commit -m "GitHub Action's build"
+        git branches
+        git push
         git subtree push --prefix build origin gh-pages
