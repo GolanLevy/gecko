@@ -9,10 +9,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Use Node.js 12.x
+    - name: Use Node.js 10.x
       uses: actions/setup-node@v1
       with:
-        node-version: 12.x
+        node-version: 10.x
     - name: DEPLOY
       env:
         GITHUB_TOKEN: ${{ secrets.github_token }}
@@ -22,6 +22,7 @@ jobs:
         git remote -v
         git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git remote -v
+        git pull
         npm install
         webpack
         git subtree push --prefix build origin gh-pages
