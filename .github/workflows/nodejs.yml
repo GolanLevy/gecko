@@ -25,6 +25,6 @@ jobs:
         npm install
         webpack
         git commit -am "GitHub Action's build"
-        git branches
+        git branch
         git push
         git subtree push --prefix build origin gh-pages
