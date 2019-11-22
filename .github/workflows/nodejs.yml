@@ -19,6 +19,7 @@ jobs:
       run: |
         git config user.email "action@github.com"
         git config user.name "GitHub Action"
+        git checkout master
         git remote -v
         git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git remote -v
