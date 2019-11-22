@@ -15,12 +15,13 @@ jobs:
         node-version: 12.x
     - name: DEPLOY
       env:
-        GITHUB_TOKEN: ${{ secrets.github_token_deploy }}
+        GITHUB_TOKEN: ${{ secrets.github_token }}
       run: |
-        git config user.email "golan.levy@gong.io"
-        git config user.name "Golan Levy"
+        git config user.email "action@github.com"
+        git config user.name "GitHub Action"
         git remote -v
-        git remote set-url origin https://github.com/${GITHUB_REPOSITORY}.git
+        git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        git remote -v
         npm install
         webpack
         git subtree push --prefix build origin gh-pages
