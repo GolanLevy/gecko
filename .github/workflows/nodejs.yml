@@ -24,7 +24,7 @@ jobs:
         git config user.email "action@github.com"
         git config user.name "GitHub Action"
         
-        SSH_DIR="/root/.ssh"
+        SSH_DIR="${HOME}/.ssh"
         mkdir "${SSH_DIR}"
         ssh-keyscan -t rsa github.com > "${SSH_DIR}/known_hosts"
         echo "${ACTIONS_DEPLOY_KEY}" > "${SSH_DIR}/id_rsa"
