@@ -30,7 +30,4 @@ jobs:
         webpack
         git commit -am "GitHub Action's build"
         git push
-        git subtree split --prefix=build -b gh-pages
-        git checkout gh-pages
-        git push -u origin gh-pages
-        git branch
+        git subtree push --prefix build origin ghpages
